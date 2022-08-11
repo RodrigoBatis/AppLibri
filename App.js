@@ -5,16 +5,11 @@ import Cadastro from "./src/telas/cadastro";
 
 const App = () => {
   
-  const nome = 'SENAI -- JANDIRA'
+  //const nome = 'SENAI -- JANDIRA'
 
   return(
     <SafeAreaView>
 
-      {/* <Text style={estilo.titulo}>
-        {nome}
-      </Text> */}
-
-      {/* <Login/> */}
       <Cadastro/>
 
     </SafeAreaView>
