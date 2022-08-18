@@ -25,9 +25,9 @@ const estilos  = StyleSheet.create({
       alignItems:"center",
       marginVertical:20,
       borderRadius: 20,
-      borderWidth: 5,
+      borderWidth: 3,
       borderColor:COLORS.darkBlue,
-      borderStyle:"dashed"
+      borderStyle:"dotted"
    },
    Title:{
       color:COLORS.white,

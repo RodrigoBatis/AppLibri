@@ -32,7 +32,16 @@ const Cadastro = () => {
     }
 
     //Validação dos dados de cadastros 
-    //Função de
+
+    //State de erro de preenchimento 
+    const [errors, setErrors] = React.useState({});
+
+    //Função handler que configura as mensagens de erro na state
+    const handlerErrors = (errorMesage, input) => {
+      setErrors((prevState)=>({...prevState, [input]:errorMesage}));
+    }
+
+    //Função de Validação
     const validate = () => {
 
       let validade = true;
@@ -40,23 +49,34 @@ const Cadastro = () => {
       if (!inputs.titulo)
       {
         validade = false
-        console.log("Titulo em branco")
+
+        handlerErrors('Informe o titulo do livro.', 'titulo');
+
+        // console.log("Titulo em branco")
 
       }
 
       if (!inputs.descricao)
       {
         validade = false
-        console.log("descrição em branco")
+
+        handlerErrors('Informe a descrição do livro.', 'descricao');
+
+        // console.log("descrição em branco")
 
       }
 
       if (!inputs.capa)
       {
         validade = false
-        console.log("capa em branco")
+
+        handlerErrors('Informe a capa do livro.', 'capa');
+
+        // console.log("capa em branco")
 
       }
+
+      console.log(errors);
 
     }
 
@@ -69,13 +89,29 @@ const Cadastro = () => {
 
           <View style={estilos.ViewForm}>
   
-            <Input label= "Titulo:" onChangeText={(text) => handlerOnChange(text, 'titulo')}/>
+            <Input  label= "Titulo:" 
+                    error={errors.titulo}
 
-            <Input label= "Descrição:" onChangeText={(text) => handlerOnChange(text, 'descricao')}/>
+                    onFocus={()=>{handlerErrors(null, 'titulo')}}
 
-            <Input label= "Capa:" onChangeText={(text) => handlerOnChange(text, 'capa')}/>
+                    onChangeText={(text) => handlerOnChange(text, 'titulo')}/>
 
-            <Button title= "Cadastrar" onPress={validate}/>
+            <Input  label= "Descrição:" 
+                    error={errors.descricao}
+
+                    onFocus={()=>{handlerErrors(null, 'descricao')}}
+
+                    onChangeText={(text) => handlerOnChange(text, 'descricao')}/>
+
+            <Input  label= "Capa:" 
+                    error={errors.capa}
+
+                    onFocus={()=>{handlerErrors(null, 'capa')}}
+
+                    onChangeText={(text) => handlerOnChange(text, 'capa')}/>
+
+            <Button title= "Cadastrar" 
+                    onPress={validate}/>
 
           </View>
         </ScrollView>
@@ -97,7 +133,8 @@ const estilos = StyleSheet.create({
   TextTitle:{
     color:COLORS.black,
     fontSize:25,
-    fontWeight:"bold"
+    fontWeight:"bold",
+    textAlign:"center"
   },
   ViewForm:{
     marginVertical:20,
