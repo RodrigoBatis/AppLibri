@@ -90,6 +90,7 @@ const Cadastro = () => {
           <View style={estilos.ViewForm}>
   
             <Input  label= "Titulo:" 
+                    iconName="book-outline"
                     error={errors.titulo}
 
                     onFocus={()=>{handlerErrors(null, 'titulo')}}
@@ -97,6 +98,7 @@ const Cadastro = () => {
                     onChangeText={(text) => handlerOnChange(text, 'titulo')}/>
 
             <Input  label= "Descrição:" 
+                    iconName="card-text-outline"
                     error={errors.descricao}
 
                     onFocus={()=>{handlerErrors(null, 'descricao')}}
@@ -104,6 +106,7 @@ const Cadastro = () => {
                     onChangeText={(text) => handlerOnChange(text, 'descricao')}/>
 
             <Input  label= "Capa:" 
+                    iconName="image-outline"
                     error={errors.capa}
 
                     onFocus={()=>{handlerErrors(null, 'capa')}}
