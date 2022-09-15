@@ -9,9 +9,16 @@ const listagem = () =>
 {
    const[livros, setLivros]= useState({});
 
-   useEffect(
-      apiLivraria.get('/listarLivros')
-   );
+      useEffect(
+         ()=>
+         {
+            apiLivraria.get('/listarLivros')
+            .then(data => {
+               console.log(data);
+            })
+         },
+         []
+      );
 
    return(
       <ScrollView>
