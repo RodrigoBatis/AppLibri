@@ -2,6 +2,7 @@ import React from "react";
 import {Text, View, StyleSheet, SafeAreaView} from "react-native";
 import Login from "./src/telas/login";
 import Cadastro from "./src/telas/cadastro";
+import Listagem from "./src/telas/listagem";
 
 const App = () => {
   
@@ -10,7 +11,8 @@ const App = () => {
   return(
     <SafeAreaView>
 
-      <Cadastro/>
+      {/* <Cadastro/> */}
+      <Listagem/>
 
     </SafeAreaView>
   );

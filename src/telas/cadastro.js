@@ -4,6 +4,7 @@ import {Text, View, StyleSheet, SafeAreaView, ScrollView} from "react-native";
 import Input from "../componentes/input";
 import Button from "../componentes/button";
 import COLORS from "../const/colors";
+import apiLivraria from "../service/apiLivraria";
 
 const Cadastro = () => {
     const titulo = 'CADASTRO DE LIVRO'
@@ -75,9 +76,32 @@ const Cadastro = () => {
         // console.log("capa em branco")
 
       }
-
+      if(validade)
+      {
+        //Envia os dados para a API cadastrar.
+        cadastrar();
+        console.log('Cadastro realizado')
+      }
       console.log(errors);
 
+    }
+
+    const cadastrar = () => 
+    {
+      try 
+      {
+
+        const response = apiLivraria.post('/cadastrarLivros', 
+        {
+          titulo:     inputs.titulo,
+          descricao:  inputs.descricao,
+          imagem:     inputs.capa,
+        });
+
+      }catch (error) 
+      {
+        
+      }
     }
 
     return(
