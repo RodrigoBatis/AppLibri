@@ -7,7 +7,7 @@ import capaLivro150 from "../assets/livros/lor150.png"
 
 const listagem = () => 
 {
-   const[livros, setLivros]= useState({});
+   const[livros, setLivros]= useState([]);
 
       useEffect(
          ()=>
@@ -15,6 +15,7 @@ const listagem = () =>
             apiLivraria.get('/listarLivros')
             .then(data => {
                console.log(data);
+               setLivros(data.data);
             })
          },
          []
@@ -23,10 +24,18 @@ const listagem = () =>
    return(
       <ScrollView>
          <View style={estilos.container}>
-            <View style={estilos.post}>
-               <Image style={estilos.imagem} source={capaLivro150}/>
-               <Text style={estilos.titulo}>O Senhor dos Aneis</Text>
-            </View>
+            
+            {
+               livros.map(
+                  livro=>(
+                     <View style={estilos.post} key={livro.titulo}>
+                        <Image style={estilos.imagem} source={capaLivro150}/>
+                        <Text style={estilos.titulo}>{livro.titulo}</Text>
+                     </View>
+                  )
+               )
+            }
+            
          </View>
       </ScrollView>
    );
