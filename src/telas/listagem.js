@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Text, View, StyleSheet, SafeAreaView, ScrollView, Image} from "react-native";
+import {Text, View, StyleSheet, SafeAreaView, ScrollView, Image, TouchableOpacity} from "react-native";
 
 import COLORS from "../const/colors";
 import apiLivraria from "../service/apiLivraria";
@@ -28,10 +28,12 @@ const listagem = () =>
             {
                livros.map(
                   livro=>(
-                     <View style={estilos.post} key={livro.titulo}>
-                        <Image style={estilos.imagem} source={capaLivro150}/>
-                        <Text style={estilos.titulo}>{livro.titulo}</Text>
-                     </View>
+                     <TouchableOpacity key={livro.cod_livro} style={estilos.post} onPress={()=>{}} >
+                        <View style={estilos.post}>
+                           <Image style={estilos.imagem} source={capaLivro150}/>
+                           <Text style={estilos.titulo}>{livro.titulo}</Text>
+                        </View>
+                     </TouchableOpacity>
                   )
                )
             }
