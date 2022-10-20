@@ -66,7 +66,7 @@ const Detalhes = ({route, navigation})=>{
 
                     <TouchableOpacity
                         style={estilos.botao}
-                        onPress={()=>{}}>
+                        onPress={()=>{excluir()}}>
                         <Text style={[estilos.textoBotao, 
                                      {backgroundColor:COLORS.red}]}>EXCLUIR</Text>
                     </TouchableOpacity>
