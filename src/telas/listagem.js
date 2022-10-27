@@ -9,7 +9,7 @@ import {  Text,
 
 import COLORS from '../const/colors';
 import apiLivraria from '../service/apiLivraria';
-import imagemLivro150 from '../assets/livros/lor150.png';
+import capaLivro150 from '../assets/livros/lor150.png';
 
 const Listagem = ({navigation})=>{
 
@@ -38,11 +38,11 @@ const Listagem = ({navigation})=>{
                                 livro=>(
                                     <TouchableOpacity
                                         key={livro.cod_livro}
-                                        style={estilos.post}
+                                        style={[estilos.post,{backgroundColor:COLORS.white}]}
                                         onPress={()=>navigation.navigate('Detalhes', {cod_livro:livro.cod_livro})}>
 
-                                        <View>
-                                            <Image style={estilos.imagem} source={imagemLivro150}/>
+                                        <View style={estilos.post}>
+                                            <Image style={estilos.imagem} source={capaLivro150}/>
                                             <Text style={estilos.titulo}>{livro.titulo}</Text>
                                         </View>
 
